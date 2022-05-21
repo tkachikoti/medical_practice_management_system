@@ -1,15 +1,20 @@
 """This module contains functions that test the functionality of the
-modules inside the mpms_package.
+classes inside the users.py module.
 This module imports unittest from the standard library and
-modules from the mpms_package.
+users.py module from the mpms_packages.
 """
 
 import unittest
-from app.mpms_package.address import Address
 
-class AddressClassAttributesTestCase(unittest.TestCase):
-    """Test the attributes on the Address class to ensure they return
-    correct data."""
+from app.mpms_packages.users import HealthcareProfessional
+from app.mpms_packages.users import Doctor
+from app.mpms_packages.users import Nurse
+from app.mpms_packages.users import Receptionist
+from app.mpms_packages.users import Patient
+
+class HealthcareProfessionalClassAttributesTestCase(unittest.TestCase):
+    """Test the attributes of the HealthcareProfessional class to
+    ensure they return the correct data."""
 
     def test_address_line_2_attribute_with_data(self):
         """Test the address_line_2 attribute with data."""

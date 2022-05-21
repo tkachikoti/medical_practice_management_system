@@ -1,14 +1,15 @@
 """This module contains functions that test the functionality of the
-address module inside the mpms_package.
+Address class inside the address.py module.
 This module imports unittest from the standard library and
-the address mpms_package.
+the address.py module from mpms_packages.
 """
 
 import unittest
-from app.mpms_package.address import Address
+
+from app.mpms_packages.address import Address
 
 class AddressClassAttributesTestCase(unittest.TestCase):
-    """Test the attributes on the Address class to ensure they return
+    """Test the attributes for the Address class to ensure they return
     correct data."""
 
     def test_address_line_2_attribute_with_data(self):
