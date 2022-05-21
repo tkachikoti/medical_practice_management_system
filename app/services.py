@@ -19,5 +19,5 @@ class Nurse (Healthcare_professional):
 
 class Prescription:
     def __init__(self, prescription_type, dosage):
-        self.prescription_type = type
+        self.prescription_type = prescription_type
         self.patient = "CLASS PATIENT"
