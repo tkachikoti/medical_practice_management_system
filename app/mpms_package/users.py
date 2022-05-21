@@ -1,4 +1,4 @@
-class Healthcare_professional:
+class HealthcareProfessional:
     def __init__(self, name, employee_number):
         self.name = name
         self.employee_number = employee_number

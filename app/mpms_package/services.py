@@ -37,7 +37,7 @@ class Appointment:
     def find_next_available_appointment ():
         pass
 
-class Appointment_schedule:
+class AppointmentSchedule:
     def __init__(self, appointment):
         self.appointment = appointment
 
