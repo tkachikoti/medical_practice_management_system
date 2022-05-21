@@ -8,11 +8,8 @@ class Address:
         self.postcode = postcode
     
     def __repr__(self):
-        return f'Address(address_line_1={self.address_line_1}, address_line_2={self.address_line_2}, city={self.city}, county={self.county}, postcode={self.postcode})'
-
-def __main__():
-    address = Address('64 Boyd House', 'Chatham', 'Kent', 'ME4 6JT', 'Victoria Road')
-    print(address)
-
-if __name__ == '__main__':
-    __main__()
+        return (
+            f'Address(address_line_1={self.address_line_1},'
+            f'address_line_2={self.address_line_2}, city={self.city},'
+            f'county={self.county}, postcode={self.postcode})'
+        )
