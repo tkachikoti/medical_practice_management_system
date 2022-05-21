@@ -13,29 +13,72 @@ from app.mpms_packages.users import Receptionist
 from app.mpms_packages.users import Patient
 
 class HealthcareProfessionalClassAttributesTestCase(unittest.TestCase):
-    """Test the attributes of the HealthcareProfessional class to
-    ensure they return the correct data."""
+    """Test the attributes and methods of the HealthcareProfessional
+    class to ensure they return the correct data."""
 
-    def test_address_line_2_attribute_with_data(self):
-        """Test the address_line_2 attribute with data."""
-        address = Address(
-            '64 Boyd House', 'Chatham', 'Kent', 'ME4 6JT', 'Victoria Road')
-        expected_response = 'Victoria Road'
-        assert address.address_line_2 == expected_response
-    
-    def test_address_line_2_attribute_without_data(self):
-        """Test the address_line_2 attribute without data."""
-        address = Address(
-            '82 Riverside Road', 'London', 'Greater London', 'N1 2QP')
-        expected_response = ''
-        assert address.address_line_2 == expected_response
+    def test_name_attribute(self):
+        """Test the name attribute with data."""
+        health_care_professional = HealthcareProfessional(
+            'Jacob Levy', 'DR5987')
+        expected_response = 'Jacob Levy'
 
-    def test_county_attribute(self):
-        """Test the county attribute."""
-        address = Address(
-            '2 Fleet Street', 'York', 'North Yorkshire', 'YO1 1AA')
-        expected_response = 'North Yorkshire'
-        assert address.county == expected_response
+        assert health_care_professional.name == expected_response
+
+    def test_employee_number_attribute(self):
+        """Test the employee_number attribute with data."""
+        health_care_professional = HealthcareProfessional(
+            'Lisa Simpson', 'DR2083')
+        expected_response = 'DR2083'
+
+        assert health_care_professional.employee_number == expected_response
+
+    def test_consultation_method(self):
+        """Test the consultation method with data."""
+        health_care_professional = HealthcareProfessional(
+            'Tinashe Kachikoti', 'DR5987')
+        patient_name = 'Yusef Assefa'
+        expected_response = (
+            f'{patient_name} has been consulted '
+            f'by {health_care_professional.name}'
+        )
+
+        assert health_care_professional.consultation(
+            patient_name) == expected_response
+
+class HealthcareProfessionalClassAttributesTestCase(unittest.TestCase):
+    """Test the attributes and methods of the HealthcareProfessional
+    class to ensure they return the correct data."""
+
+    def test_name_attribute(self):
+        """Test the name attribute with data."""
+        health_care_professional = HealthcareProfessional(
+            'Jacob Levy', 'DR5987')
+        expected_response = 'Jacob Levy'
+
+        assert health_care_professional.name == expected_response
+
+    def test_employee_number_attribute(self):
+        """Test the employee_number attribute with data."""
+        health_care_professional = HealthcareProfessional(
+            'Juliana Hombasha', 'DR2083')
+        expected_response = 'DR2083'
+
+        assert health_care_professional.employee_number == expected_response
+
+    def test_consultation_method(self):
+        """Test the consultation method with data."""
+        health_care_professional = HealthcareProfessional(
+            'Lisa Simpson', 'DR5987')
+        patient_name = 'Yusef Assefa'
+        recommendation = 'Take the prescribed medication as instructed.'
+        expected_response = (
+            f'{patient_name} has been consulted '
+            f'by {health_care_professional.name}. '
+            f'Recommendation: {recommendation}'
+        )
+
+        assert health_care_professional.consultation(
+            patient_name, recommendation) == expected_response
 
 if __name__ == '__main__':
     unittest.main()

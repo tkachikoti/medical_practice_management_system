@@ -3,8 +3,11 @@ class HealthcareProfessional:
         self.name = name
         self.employee_number = employee_number
     
-    def consultation ():
-        pass
+    def consultation (self, patient_name, recommendation):
+        return (
+            f'{patient_name} has been consulted by {self.name}. '
+            f'Recommendation: {recommendation}'
+        )
 
 class Doctor (HealthcareProfessional):
     def __init__(self, name, employee_number):

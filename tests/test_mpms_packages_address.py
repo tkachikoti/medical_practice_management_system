@@ -17,6 +17,7 @@ class AddressClassAttributesTestCase(unittest.TestCase):
         address = Address(
             '64 Boyd House', 'Chatham', 'Kent', 'ME4 6JT', 'Victoria Road')
         expected_response = 'Victoria Road'
+
         assert address.address_line_2 == expected_response
     
     def test_address_line_2_attribute_without_data(self):
@@ -24,6 +25,7 @@ class AddressClassAttributesTestCase(unittest.TestCase):
         address = Address(
             '82 Riverside Road', 'London', 'Greater London', 'N1 2QP')
         expected_response = ''
+
         assert address.address_line_2 == expected_response
 
     def test_county_attribute(self):
@@ -31,6 +33,7 @@ class AddressClassAttributesTestCase(unittest.TestCase):
         address = Address(
             '2 Fleet Street', 'York', 'North Yorkshire', 'YO1 1AA')
         expected_response = 'North Yorkshire'
+
         assert address.county == expected_response
 
 if __name__ == '__main__':
