@@ -10,7 +10,8 @@ from app.mpms_packages.address import Address
 
 class AddressClassAttributesTestCase(unittest.TestCase):
     """Test the attributes for the Address class to ensure they return
-    correct data."""
+    correct data.
+    """
 
     def test_address_line_2_attribute_with_data(self):
         """Test the address_line_2 attribute with data."""

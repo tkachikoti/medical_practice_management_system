@@ -1,3 +1,7 @@
+"""This module contains the HealthcareProfessional class.
+"""
+from services import Prescription
+
 class HealthcareProfessional:
     def __init__(self, name, employee_number):
         self.name = name
@@ -6,14 +10,13 @@ class HealthcareProfessional:
     def consultation (self, patient_name, recommendation):
         return (
             f'{patient_name} has been consulted by {self.name}. '
-            f'Recommendation: {recommendation}'
-        )
+            f'Recommendation: {recommendation}')
 
 class Doctor (HealthcareProfessional):
     def __init__(self, name, employee_number):
         super().__init__(name, employee_number)
     
-    def issue_prescription ():
+    def issue_prescription ()
         pass
 
 class Nurse (HealthcareProfessional):

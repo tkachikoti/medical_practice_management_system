@@ -3,11 +3,12 @@ import users
 class Prescription:
     def __init__(
             self, patient_name, patient_id,
-            patient_phone_number, prescription_id, prescription_type,
-            prescription_quantity, prescription_dosage, employee_name,
-            employee_number):
+            patient_phone_number, prescription_id,
+            prescription_type, prescription_quantity, prescription_dosage,
+            employee_name, employee_number, prescription_name=''):
 
         self.prescription_id = prescription_id
+        self.prescription_name = prescription_name
         self.prescription_type = prescription_type
         self.quantity = prescription_quantity
         self.dosage = prescription_dosage
