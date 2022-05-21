@@ -91,6 +91,24 @@ class NurseClassTestCase(unittest.TestCase):
 
         assert nurse.employee_number == expected_response
 
+class PatientClassTestCase(unittest.TestCase):
+    """Test the attributes and methods of the Patient class to ensure
+    they return the correct data.
+    """
+
+    def test_name_attribute(self):
+        """Test the name attribute with data."""
+        patient = Patient('Kaelyn Csaba', 'NU4013')
+        expected_response = 'Kaelyn Csaba'
+
+        assert patient.name == expected_response
+
+    def test_employee_number_attribute(self):
+        """Test the employee_number attribute with data."""
+        patient = Patient('Liba Kateryna', 'NU0745')
+        expected_response = 'NU0745'
+
+        assert patient.employee_number == expected_response
 
 if __name__ == '__main__':
     unittest.main()

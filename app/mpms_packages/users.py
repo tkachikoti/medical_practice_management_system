@@ -1,6 +1,7 @@
 """This module contains the HealthcareProfessional class.
 """
 from services import Prescription
+from address import Address
 
 class HealthcareProfessional:
     def __init__(self, name, employee_number):
@@ -35,10 +36,13 @@ class Receptionist:
         pass
 
 class Patient:
-    def __init__(self, name, patient_id, phone_number):
+    def __init__(
+            self, name, patient_id, phone_number, address_line_1,
+            city,county, postcode, address_line_2=''):
         self.name = name
         self.patient_id = patient_id
-        self.address = None
+        self.address = Address(
+            address_line_1, city,county, postcode, address_line_2)
         self.phone_number = phone_number
     
     def request_repeat_prescription ():
