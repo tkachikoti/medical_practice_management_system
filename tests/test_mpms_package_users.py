@@ -1,7 +1,7 @@
 """This module contains functions that test the functionality of the
-address module inside the mpms_package.
+modules inside the mpms_package.
 This module imports unittest from the standard library and
-the address mpms_package.
+modules from the mpms_package.
 """
 
 import unittest
