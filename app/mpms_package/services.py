@@ -1,32 +1,43 @@
 import users
 
 class Prescription:
-    def __init__(self, **prescription_data, **patient_data, **staff_data):
-        self.prescription_id = prescription_data.prescription_id
-        self.prescription_type = prescription_data.prescription_type
+    def __init__(
+            self, patient_name, patient_id,
+            patient_phone_number, prescription_id, prescription_type,
+            prescription_quantity, prescription_dosage, employee_name,
+            employee_number):
+
+        self.prescription_id = prescription_id
+        self.prescription_type = prescription_type
+        self.quantity = prescription_quantity
+        self.dosage = prescription_dosage
+
         self.patient = users.Patient(
-            patient_data.name,
-            patient_data.patient_id,
-            patient_data.phone_number)
+            patient_name,
+            patient_id,
+            patient_phone_number)
+
         self.doctor = users.Doctor(
-            staff_data.name,
-            staff_data.employee_number)
-        self.quantity = prescription_data.quantity
-        self.dosage = prescription_data.dosage
+            employee_name,
+            employee_number)
 
 class Appointment:
     def __init__(
             self, appointment_type, appointment_id,
-            **patient_data, **staff_data):
+            patient_name, patient_patient_id, patient_phone_number,
+            employee_name, employee_number):
+
         self.appointment_type = appointment_type
-        self.appointment_id = None
+        self.appointment_id = appointment_id
+
         self.patient = users.Patient(
-            patient_data.name,
-            patient_data.patient_id,
-            patient_data.phone_number)
-        self.staff = users.Healthcare_professional(
-            staff_data.name,
-            staff_data.employee_number)
+            patient_name,
+            patient_patient_id,
+            patient_phone_number)
+
+        self.staff = users.HealthcareProfessional(
+            employee_name,
+            employee_number)
 
     def add_appointment ():
         pass

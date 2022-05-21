@@ -6,14 +6,14 @@ class HealthcareProfessional:
     def consultation ():
         pass
 
-class Doctor (Healthcare_professional):
+class Doctor (HealthcareProfessional):
     def __init__(self, name, employee_number):
         super().__init__(name, employee_number)
     
     def issue_prescription ():
         pass
 
-class Nurse (Healthcare_professional):
+class Nurse (HealthcareProfessional):
     def __init__(self, name, employee_number):
         super().__init__(name, employee_number)
 
