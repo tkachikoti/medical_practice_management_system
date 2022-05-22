@@ -8,7 +8,7 @@ import unittest
 
 from app.mpms_packages.contact_address import Address
 
-class AddressClassAttributesTestCase(unittest.TestCase):
+class AddressClassTestCase(unittest.TestCase):
     """Test the attributes for the Address class to ensure they return
     correct data.
     """

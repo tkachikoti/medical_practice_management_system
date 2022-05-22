@@ -28,9 +28,9 @@ class Prescription:
     prescription_type: str
     prescription_quantity: int
     prescription_dosage: str
-    prescription_name: str = None
     patient: Patient
     doctor: Doctor
+    prescription_name: str = None
 
 @dataclass
 class Appointment:
