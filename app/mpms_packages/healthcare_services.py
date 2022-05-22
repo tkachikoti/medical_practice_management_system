@@ -1,4 +1,6 @@
-import users
+from app.mpms_packages.users import Patient
+from app.mpms_packages.users import Doctor
+from app.mpms_packages.users import HealthcareProfessional
 
 class Prescription:
     def __init__(
@@ -13,12 +15,12 @@ class Prescription:
         self.quantity = prescription_quantity
         self.dosage = prescription_dosage
 
-        self.patient = users.Patient(
+        self.patient = Patient(
             patient_name,
             patient_id,
             patient_phone_number)
 
-        self.doctor = users.Doctor(
+        self.doctor = Doctor(
             employee_name,
             employee_number)
 
@@ -31,33 +33,33 @@ class Appointment:
         self.appointment_type = appointment_type
         self.appointment_id = appointment_id
 
-        self.patient = users.Patient(
+        self.patient = Patient(
             patient_name,
             patient_patient_id,
             patient_phone_number)
 
-        self.staff = users.HealthcareProfessional(
+        self.staff = HealthcareProfessional(
             employee_name,
             employee_number)
 
-    def add_appointment ():
-        pass
+    def add_appointment (self) -> bool:
+        return True
 
-    def cancel_appointment ():
-        pass
+    def cancel_appointment (self) -> bool:
+        True
 
-    def find_next_available_appointment ():
-        pass
+    def find_next_available_appointment (self) -> bool:
+        return True
 
 class AppointmentSchedule:
     def __init__(self, appointment: Appointment) -> None:
         self.appointment = appointment
 
-    def add_appointment ():
-        pass
+    def add_appointment (self) -> bool:
+        return True
 
-    def cancel_appointment ():
-        pass
+    def cancel_appointment (self) -> bool:
+        return True
 
-    def find_next_available_appointment ():
-        pass
+    def find_next_available_appointment (self) -> bool:
+        return True

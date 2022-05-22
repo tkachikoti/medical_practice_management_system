@@ -1,7 +1,6 @@
 """This module contains the HealthcareProfessional class.
 """
-from services import Prescription
-from address import Address
+from app.mpms_packages.contact_address import Address
 
 class HealthcareProfessional:
     def __init__(self, name: str, employee_number: str) -> None:
@@ -17,8 +16,8 @@ class Doctor (HealthcareProfessional):
     def __init__(self, name: str, employee_number: str) -> None:
         super().__init__(name, employee_number)
     
-    def issue_prescription ():
-        pass
+    def issue_prescription (self) -> bool:
+        return True
 
 class Nurse (HealthcareProfessional):
     def __init__(self, name: str, employee_number: str) -> None:
@@ -29,11 +28,11 @@ class Receptionist:
         self.name = name
         self.employee_number = employee_number
 
-    def make_appointment ():
-        pass
+    def make_appointment (self) -> bool:
+        return True
 
-    def cancel_appointment ():
-        pass
+    def cancel_appointment (self) -> bool:
+        return True
 
 class Patient:
     def __init__(
@@ -46,8 +45,8 @@ class Patient:
             address_line_1, city,county, postcode, address_line_2)
         self.phone_number = phone_number
     
-    def request_repeat_prescription ():
-        pass
+    def request_repeat_prescription (self) -> bool:
+        return True
 
-    def request_appointment ():
-        pass
+    def request_appointment (self) -> bool:
+        return True
