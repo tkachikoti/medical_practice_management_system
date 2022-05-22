@@ -98,7 +98,7 @@ class PatientClassTestCase(unittest.TestCase):
 
     def test_name_attribute(self):
         """Test the name attribute with data."""
-        patient = Patient('Kaelyn Csaba', 'NU4013')
+        patient = Patient('Hjálmar Hendrik', 'PT2017', '+4512345678', '25 Cowin Lane', 'Sheffield', 'South Yorkshire', 'S1 2AB')
         expected_response = 'Kaelyn Csaba'
 
         assert patient.name == expected_response
