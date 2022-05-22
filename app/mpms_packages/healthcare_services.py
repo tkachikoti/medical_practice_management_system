@@ -1,6 +1,6 @@
-from app.mpms_packages.users import Patient
-from app.mpms_packages.users import Doctor
-from app.mpms_packages.users import HealthcareProfessional
+from app.mpms_packages.system_users import Patient
+from app.mpms_packages.system_users import Doctor
+from app.mpms_packages.system_users import HealthcareProfessional
 
 class Prescription:
     def __init__(

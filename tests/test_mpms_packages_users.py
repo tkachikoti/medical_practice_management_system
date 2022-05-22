@@ -7,11 +7,11 @@ users.py module from the mpms_packages.
 import unittest
 
 from app.mpms_packages.contact_address import Address
-from app.mpms_packages.users import HealthcareProfessional
-from app.mpms_packages.users import Doctor
-from app.mpms_packages.users import Nurse
-from app.mpms_packages.users import Receptionist
-from app.mpms_packages.users import Patient
+from app.mpms_packages.system_users import HealthcareProfessional
+from app.mpms_packages.system_users import Doctor
+from app.mpms_packages.system_users import Nurse
+from app.mpms_packages.system_users import Receptionist
+from app.mpms_packages.system_users import Patient
 
 class HealthcareProfessionalClassTestCase(unittest.TestCase):
     """Test the attributes and methods of the HealthcareProfessional
