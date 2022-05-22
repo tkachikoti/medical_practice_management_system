@@ -86,5 +86,75 @@ class AppointmentClassTestCase(unittest.TestCase):
         assert (
             appointment.patient.address.postcode == expected_response)
 
+class AppointmentScheduleClassTestCase(unittest.TestCase):
+    """Test the attributes and methods for the AppointmentSchedule class
+    to ensure they return correct data.
+    """
+    @classmethod
+    def setUpClass(cls):
+        """Set up data for the test class."""
+        # Appointment 1 
+        cls.patient_address_1 = Address(
+            '5 Mazzaline Road', 'London', 'Greater London', 'E1 6QP')
+        cls.patient_1 = Patient(
+            'Shauna Oshrat', 'PT5924', '4539457626908', cls.patient_address_1)
+        cls.employee_1 = HealthcareProfessional('Caroline Ido', 'DR4899')
+        cls.appointment_1 = Appointment(
+            'Consultation', 'AP3298', '2023-02-06 at 14:00',
+            cls.patient_1, cls.employee_1)
+
+        # Appointment 2
+        cls.patient_address_2 = Address(
+            '5 Mazzaline Road', 'London', 'Greater London', 'E1 6QP')
+        cls.patient_2 = Patient(
+            'Shauna Oshrat', 'PT5924', '4539457626908', cls.patient_address_2)
+        cls.employee_2 = HealthcareProfessional('Caroline Ido', 'DR4899')
+        cls.appointment_2 = Appointment(
+            'Consultation', 'AP3298', '2023-02-06 at 14:00',
+            cls.patient_2, cls.employee_2)
+        
+        # Appointment 3
+        cls.patient_address_3 = Address(
+            '5 Mazzaline Road', 'London', 'Greater London', 'E1 6QP')
+        cls.patient_3 = Patient(
+            'Shauna Oshrat', 'PT5924', '4539457626908', cls.patient_address_3)
+        cls.employee_3 = HealthcareProfessional('Caroline Ido', 'DR4899')
+        cls.appointment_3 = Appointment(
+            'Consultation', 'AP3298', '2023-02-06 at 14:00',
+            cls.patient_3, cls.employee_3)
+
+        cls.appointment_schedule_list = [
+            cls.appointment_1, cls.appointment_2, cls.appointment_3]
+
+    def test_appointment_id_attribute_with_data(self) -> None:
+        """Test the appointment_id attribute with data."""
+        patient_address = Address(
+            '5 Mazzaline Road', 'London', 'Greater London', 'E1 6QP')
+        patient = Patient(
+            'Shauna Oshrat', 'PT5924', '4539457626908', patient_address)
+        employee = HealthcareProfessional('Caroline Ido', 'DR4899')
+        appointment = Appointment(
+            'Consultation', 'AP3298', '2023-02-06 at 14:00',
+            patient, employee)
+        expected_response = 'AP3298'
+
+        assert appointment.appointment_id == expected_response
+    
+    def test_postcode_attribute_with_data(self) -> None:
+        """Test the patient.address.postcode attribute with data.
+        """
+        patient_address = Address(
+            '78 Waterfalls Avenue', 'London', 'Greater London', 'W3 1QP')
+        patient = Patient(
+            'Bratislava Silvia', 'PT6631', '459876420555', patient_address)
+        employee = HealthcareProfessional('Dakila Mitra', 'DR7777')
+        appointment = Appointment(
+            'Consultation', 'AP3298', '2023-02-06 at 14:00',
+            patient, employee)
+        expected_response = 'W3 1QP'
+
+        assert (
+            appointment.patient.address.postcode == expected_response)
+
 if __name__ == '__main__':
     unittest.main()
