@@ -5,7 +5,7 @@ from dataclasses import dataclass
 
 @dataclass
 class Address:
-    """This class contains the attributes Address dataclass."""
+    """This class functions as a model representing an address."""
     address_line_1: str
     city: str
     county: str
