@@ -29,50 +29,52 @@ class HealthcareProfessional:
             f'{patient_name} has been consulted by {self.name}. '
             f'Recommendation: {recommendation}')
 
+@dataclass
 class Doctor (HealthcareProfessional):
     """This class functions as a model representing a doctor.
     It inherits the attributes and methods of the HealthcareProfessional
     dataclass.
     """
-    def __init__(self, name: str, employee_number: str) -> None:
-        """This method initializes the Doctor class. It sets the name
-        and employee number attributes.
+    name: str
+    employee_number: str
+
+    def __post_init__(self):
+        """This method post-initializes the Doctor class. It sets the
+        name and employee number attributes.
         :param name: The name of the doctor.
         :type name: str
         :param employee_number: The employee number of the doctor.
         :type employee_number: str
         """
-        super().__init__(name, employee_number)
-    
+        super().__init__(self.name, self.employee_number)
+
     def issue_prescription (self) -> bool:
         return True
 
+@dataclass
 class Nurse (HealthcareProfessional):
     """This class functions as a model representing a nurse.
     It inherits the attributes and methods of the HealthcareProfessional
-    dataclass."""
-    def __init__(self, name: str, employee_number: str) -> None:
-        """This method initializes the Nurse class. It sets the name
+    dataclass.
+    """
+    name: str
+    employee_number: str
+
+    def __post_init__(self):
+        """This method post-initializes the Nurse class. It sets the name
         and employee number attributes.
         :param name: The name of the nurse.
         :type name: str
         :param employee_number: The employee number of the nurse.
         :type employee_number: str
         """
-        super().__init__(name, employee_number)
+        super().__init__(self.name, self.employee_number)
 
+@dataclass
 class Receptionist:
     """This class functions as a model representing a receptionist."""
-    def __init__(self, name: str, employee_number: str) -> None:
-        """This method initializes the Receptionist class. It sets the
-        name and employee number attributes.
-        :param name: The name of the receptionist.
-        :type name: str
-        :param employee_number: The employee number of the receptionist.
-        :type employee_number: str
-        """
-        self.name = name
-        self.employee_number = employee_number
+    name: str
+    employee_number: str
 
     def make_appointment (self) -> bool:
         return True
@@ -80,30 +82,13 @@ class Receptionist:
     def cancel_appointment (self) -> bool:
         return True
 
+@dataclass
 class Patient:
     """This class functions as a model representing a patient."""
-    def __init__(
-            self, name: str, patient_id: str,
-            phone_number: int, address: Address) -> None:
-        """This method initializes the Patient class. It sets the name,
-        patient id, phone number and address attributes.
-        :param name: The name of the patient.
-        :type name: str
-        :param patient_id: The patient id of the patient.
-        :type patient_id: str
-        :param phone_number: The phone number of the patient.
-        :type phone_number: int
-        :param address: The address of the patient.
-        :type address: Address
-        """
-        self.name = name
-        self.patient_id = patient_id
-        self.phone_number = phone_number
-        self.address = address
-        self.name = name
-        self.patient_id = patient_id
-        self.phone_number = phone_number
-        self.address = address
+    name: str
+    patient_id: str
+    phone_number: int
+    address: Address
     
     def request_repeat_prescription (self) -> bool:
         return True
