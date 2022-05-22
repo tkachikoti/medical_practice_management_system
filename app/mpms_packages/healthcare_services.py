@@ -11,8 +11,8 @@ app.mpms_packages.system_users:
     - Doctor
     - HealthcareProfessional
 
-In addition to this, the module imports the dataclasses module from
-the standard library.
+In addition to this, the module imports the dataclasses and datetime
+modules from the standard library.
 """
 
 from dataclasses import dataclass
@@ -41,20 +41,12 @@ class Appointment:
     patient: Patient
     employee: HealthcareProfessional
 
-    def add_appointment (self) -> bool:
-        return True
-
-    def cancel_appointment (self) -> bool:
-        True
-
-    def find_next_available_appointment (self) -> bool:
-        return True
 
 class AppointmentSchedule:
     """This class functions as a model representing an appointment
     schedule.
     """
-    appointment: Appointment
+    appointment: list
 
     def add_appointment (self) -> bool:
         return True

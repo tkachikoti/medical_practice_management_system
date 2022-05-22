@@ -14,6 +14,7 @@ from app.mpms_packages.healthcare_services import Appointment
 from app.mpms_packages.healthcare_services import AppointmentSchedule
 from app.mpms_packages.system_users import Patient
 from app.mpms_packages.system_users import Doctor
+from app.mpms_packages.system_users import HealthcareProfessional
 from app.mpms_packages.contact_address import Address
 
 class PrescriptionClassTestCase(unittest.TestCase):
@@ -50,6 +51,40 @@ class PrescriptionClassTestCase(unittest.TestCase):
 
         assert (
             prescription.patient.address.address_line_2 == expected_response)
+
+class AppointmentClassTestCase(unittest.TestCase):
+    """Test the attributes and methods for the Appointment class
+    to ensure they return correct data.
+    """
+    def test_appointment_id_attribute_with_data(self) -> None:
+        """Test the appointment_id attribute with data."""
+        patient_address = Address(
+            '5 Mazzaline Road', 'London', 'Greater London', 'E1 6QP')
+        patient = Patient(
+            'Shauna Oshrat', 'PT5924', '4539457626908', patient_address)
+        employee = HealthcareProfessional('Caroline Ido', 'DR4899')
+        appointment = Appointment(
+            'Consultation', 'AP3298', '2023-02-06 at 14:00',
+            patient, employee)
+        expected_response = 'AP3298'
+
+        assert appointment.appointment_id == expected_response
+    
+    def test_postcode_attribute_with_data(self) -> None:
+        """Test the patient.address.postcode attribute with data.
+        """
+        patient_address = Address(
+            '78 Waterfalls Avenue', 'London', 'Greater London', 'W3 1QP')
+        patient = Patient(
+            'Bratislava Silvia', 'PT6631', '459876420555', patient_address)
+        employee = HealthcareProfessional('Dakila Mitra', 'DR7777')
+        appointment = Appointment(
+            'Consultation', 'AP3298', '2023-02-06 at 14:00',
+            patient, employee)
+        expected_response = 'W3 1QP'
+
+        assert (
+            appointment.patient.address.postcode == expected_response)
 
 if __name__ == '__main__':
     unittest.main()
