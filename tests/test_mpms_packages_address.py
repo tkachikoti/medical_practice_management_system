@@ -24,7 +24,7 @@ class AddressClassAttributesTestCase(unittest.TestCase):
         """Test the address_line_2 attribute without data."""
         address = Address(
             '82 Riverside Road', 'London', 'Greater London', 'N1 2QP')
-        expected_response = ''
+        expected_response = None
 
         assert address.address_line_2 == expected_response
 

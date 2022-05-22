@@ -36,14 +36,12 @@ class Receptionist:
 
 class Patient:
     def __init__(
-            self, name: str, patient_id: str, phone_number: int,
-            address_line_1: str, city: str, county: str, postcode: str,
-            address_line_2='') -> None:
+            self, name: str, patient_id: str,
+            phone_number: int, address: Address) -> None:
         self.name = name
         self.patient_id = patient_id
-        self.address = Address(
-            address_line_1, city,county, postcode, address_line_2)
         self.phone_number = phone_number
+        self.address = address
     
     def request_repeat_prescription (self) -> bool:
         return True

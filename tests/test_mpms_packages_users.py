@@ -6,6 +6,7 @@ users.py module from the mpms_packages.
 
 import unittest
 
+from app.mpms_packages.contact_address import Address
 from app.mpms_packages.users import HealthcareProfessional
 from app.mpms_packages.users import Doctor
 from app.mpms_packages.users import Nurse
@@ -128,36 +129,41 @@ class PatientClassTestCase(unittest.TestCase):
     """
     def test_name_attribute(self) -> None:
         """Test the name attribute with data."""
+        address = Address(
+            '25 Cowin Lane','Sheffield', 'South Yorkshire', 'S1 2AB')
         patient = Patient(
-            'Hjalmar Hendrik', 'PT2017', '+4512345678', '25 Cowin Lane',
-            'Sheffield', 'South Yorkshire', 'S1 2AB')
+            'Hjalmar Hendrik', 'PT2017', '+4512345678', address)
         expected_response = 'Hjalmar Hendrik'
 
         assert patient.name == expected_response
 
     def test_address_postcode_attribute(self) -> None:
         """Test the address.postcode attribute with data."""
+        address = Address(
+            '105 East Street','Oxford', 'Oxfordshire', 'OX1 2AB')
         patient = Patient(
-            'Gislenus Antonieta', 'PT7793', '+45456456251', '105 East Street',
-            'Oxford', 'Oxfordshire', 'OX1 2AB')
+            'Gislenus Antonieta', 'PT7793', '+45456456251', address)
         expected_response = 'OX1 2AB'
 
         assert patient.address.postcode == expected_response
 
     def test_request_repeat_prescription_method(self) -> None:
         """Test the request_repeat_prescription method with data."""
+        address = Address(
+            '2A Baker House', 'Leeds', 'West Yorkshire',
+            'LS8 1IN', 'Sunny Lane')
         patient = Patient(
-            'Totty Faisal', 'PT2636', '+45283650813', '2A Baker House',
-            'Leeds', 'West Yorkshire', 'LS8 1IN', 'Sunny Lane')
+            'Totty Faisal', 'PT2636', '+45283650813', address)
         expected_response = True
 
         assert patient.request_repeat_prescription() == expected_response
     
     def test_request_appointment_method(self) -> None:
         """Test the request_appointment method with data."""
+        address = Address(
+            '9 Walnut Street', 'Gateshead', 'Tyne and Wear', 'NE8 3BB')
         patient = Patient(
-            'Smiljana Helena', 'PT4927', '+45472008599', '9 Walnut Street',
-            'Gateshead', 'Tyne and Wear', 'NE8 3BB')
+            'Smiljana Helena', 'PT4927', '+45472008599', address)
         expected_response = True
 
         assert patient.request_appointment() == expected_response
