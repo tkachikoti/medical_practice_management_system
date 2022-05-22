@@ -1,46 +1,45 @@
+"""This module contains classes that are related to the healthcare
+services that are provided/consumed by the employees/patients of a
+medical practice. The classes in this module are:
+    - Prescription
+    - Appointment
+    - AppointmentSchedule
+
+The module imports the following modules from
+app.mpms_packages.system_users:
+    - Patient
+    - Doctor
+    - HealthcareProfessional
+
+In addition to this, the module imports the dataclasses module from
+the standard library.
+"""
+
+from dataclasses import dataclass
+
 from app.mpms_packages.system_users import Patient
 from app.mpms_packages.system_users import Doctor
 from app.mpms_packages.system_users import HealthcareProfessional
 
+@dataclass
 class Prescription:
-    def __init__(
-            self, patient_name: str, patient_id: str,
-            patient_phone_number: int, prescription_id: str,
-            prescription_type: str, prescription_quantity: int, prescription_dosage: str,
-            employee_name: str, employee_number: str, prescription_name='') -> None:
+    """This class functions as a model representing a prescription."""
+    prescription_id: str
+    prescription_type: str
+    prescription_quantity: int
+    prescription_dosage: str
+    prescription_name: str = None
+    patient: Patient
+    doctor: Doctor
 
-        self.prescription_id = prescription_id
-        self.prescription_name = prescription_name
-        self.prescription_type = prescription_type
-        self.quantity = prescription_quantity
-        self.dosage = prescription_dosage
-
-        self.patient = Patient(
-            patient_name,
-            patient_id,
-            patient_phone_number)
-
-        self.doctor = Doctor(
-            employee_name,
-            employee_number)
-
+@dataclass
 class Appointment:
-    def __init__(
-            self, appointment_type: str, appointment_id: str,
-            patient_name: str, patient_patient_id: str, patient_phone_number: int,
-            employee_name: str, employee_number: str) -> None:
-
-        self.appointment_type = appointment_type
-        self.appointment_id = appointment_id
-
-        self.patient = Patient(
-            patient_name,
-            patient_patient_id,
-            patient_phone_number)
-
-        self.staff = HealthcareProfessional(
-            employee_name,
-            employee_number)
+    """This class functions as a model representing an appointment."""
+    appointment_type: str
+    appointment_id: str
+    appointment_date: str
+    patient: Patient
+    employee: HealthcareProfessional
 
     def add_appointment (self) -> bool:
         return True
@@ -52,8 +51,10 @@ class Appointment:
         return True
 
 class AppointmentSchedule:
-    def __init__(self, appointment: Appointment) -> None:
-        self.appointment = appointment
+    """This class functions as a model representing an appointment
+    schedule.
+    """
+    appointment: Appointment
 
     def add_appointment (self) -> bool:
         return True

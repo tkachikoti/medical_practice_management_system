@@ -1,5 +1,6 @@
-"""This module contains the HealthcareProfessional class. The module
-uses the Address class from the contact_address.py module.
+"""This module contains the classes that represent the users of a
+medical practice management system. The module uses the Address class
+from the contact_address.py module.
 """
 
 from dataclasses import dataclass
