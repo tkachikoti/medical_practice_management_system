@@ -15,7 +15,7 @@ class HealthcareProfessional:
     name: str
     employee_number: str
     
-    def consultation (self, patient_name: str, recommendation: str) -> str:
+    def consultation(self, patient_name: str, recommendation: str) -> str:
         """This method returns a string containing the patient name,
         the healthcare professional name and the recommendation.
         :param patient_name: The name of the patient.
@@ -31,7 +31,7 @@ class HealthcareProfessional:
             f'Recommendation: {recommendation}')
 
 @dataclass
-class Doctor (HealthcareProfessional):
+class Doctor(HealthcareProfessional):
     """This class functions as a model representing a doctor.
     It inherits the attributes and methods of the HealthcareProfessional
     dataclass.
@@ -49,11 +49,11 @@ class Doctor (HealthcareProfessional):
         """
         super().__init__(self.name, self.employee_number)
 
-    def issue_prescription (self) -> bool:
+    def issue_prescription(self) -> bool:
         return True
 
 @dataclass
-class Nurse (HealthcareProfessional):
+class Nurse(HealthcareProfessional):
     """This class functions as a model representing a nurse.
     It inherits the attributes and methods of the HealthcareProfessional
     dataclass.
@@ -77,10 +77,10 @@ class Receptionist:
     name: str
     employee_number: str
 
-    def make_appointment (self) -> bool:
+    def make_appointment(self) -> bool:
         return True
 
-    def cancel_appointment (self) -> bool:
+    def cancel_appointment(self) -> bool:
         return True
 
 @dataclass
@@ -91,8 +91,8 @@ class Patient:
     phone_number: int
     address: Address
     
-    def request_repeat_prescription (self) -> bool:
+    def request_repeat_prescription(self) -> bool:
         return True
 
-    def request_appointment (self) -> bool:
+    def request_appointment(self) -> bool:
         return True
