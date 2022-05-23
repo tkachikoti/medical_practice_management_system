@@ -89,7 +89,7 @@ $ flask init-db
 $ docker-compose up
 ```
 
-5. Open [http://192.168.1.12:3000/](http://192.168.1.12:3000/) in a browser.
+5. Open [http://127.0.0.1:5000/](http://127.0.0.1:5000/) in a browser.
 
 ## Testing the app
 
