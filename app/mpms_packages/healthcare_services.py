@@ -24,7 +24,7 @@ from app.mpms_packages.system_users import HealthcareProfessional
 @dataclass
 class Prescription:
     """This class functions as a model representing a prescription."""
-    prescription_id: str
+    prescription_id: int
     prescription_type: str
     prescription_quantity: int
     prescription_dosage: str
@@ -36,7 +36,7 @@ class Prescription:
 class Appointment:
     """This class functions as a model representing an appointment."""
     appointment_type: str = None
-    appointment_id: str = None
+    appointment_id: int = None
     appointment_date: str = None
     patient: Patient = None
     employee: HealthcareProfessional = None
@@ -49,7 +49,7 @@ class AppointmentSchedule:
     appointments: list
 
     def add_appointment(
-            self, appointment_type: str, appointment_id: str,
+            self, appointment_type: str, appointment_id: int,
             appointment_date: str, patient: Patient,
             employee: HealthcareProfessional) -> Appointment:
         """This method adds an appointment to the appointment schedule
@@ -57,7 +57,7 @@ class AppointmentSchedule:
         :param appointment_type: The type of appointment.
         :type appointment_type: str
         :param appointment_id: The id of the appointment.
-        :type appointment_id: str
+        :type appointment_id: int
         :param appointment_date: The date of the appointment.
         :type appointment_date: str
         :param patient: The patient of the appointment.
@@ -74,12 +74,12 @@ class AppointmentSchedule:
         self.appointments.append(new_appointment)
         return new_appointment
 
-    def cancel_appointment(self, appointment_id) -> Appointment:
+    def cancel_appointment(self, appointment_id: int) -> Appointment:
         """This method cancels an appointment from the appointment
         schedule and returns the appointment.
         :param appointment_id: The id of the appointment to be
         cancelled.
-        :type appointment_id: str
+        :type appointment_id: int
         :return: The appointment that was cancelled from the
         appointment schedule.
         :rtype: Appointment

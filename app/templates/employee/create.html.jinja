@@ -1,0 +1,30 @@
+{% extends "base.html.jinja" %}
+{% block maincontent %}
+<div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8">
+        <form class="shadow p-3 mb-5 bg-body rounded" action="{% if page_title=='Update Employee' %}/employee/update?uid={{ employee_data.uid }}{% else %}/employee/create{% endif %}" method="post">
+            <div class="row">
+                <p class="text-danger text-end fs-5">* required</p>
+            </div>
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <label for="nameInput1" class="form-label">Name <span class="text-danger">*</span></label>
+                    <input name="name" type="text" class="form-control" id="nameInput1" value="{% if page_title=='Update Employee' %}{{ employee_data.name }}{% else %}{% endif %}" required />
+                </div>
+                <div class="col-md-6">
+                    <label for="employeeIdInput1" class="form-label">Employee ID <span class="text-danger">*</span></label>
+                    <input name="employee_id" type="text" class="form-control" id="employeeIdInput1" value="{% if page_title=='Update Employee' %}{{ employee_data.employee_id }}{% else %}{% endif %}" required />
+                </div>
+            </div>
+            <div class="d-grid gap-2 d-md-block mt-5">
+                <button type="submit" class="btn btn-primary btn-lg">{% if page_title=='Update Employee' %}UPDATE{% else %}CREATE{% endif %} EMPLOYEE</button>
+                <button type="button" class="btn btn-outline-secondary btn-lg">RETURN HOME</button>
+            </div>
+        </form>
+    </div>
+    <div class="col-sm-2"></div>
+</div>
+{% endblock %}
+{% block scripts %}
+{% endblock %}
