@@ -7,12 +7,11 @@ This repository contains an assignment for a Computer Science MSc module at the 
 - [Description](#description)
 - [Installing and running the app](#installing-and-running-the-app)
 - [Testing the app](#testing-the-app)
-- [Functionality overview](#functionality-overview)
 - [References](#references)
 
 ## Description
 
-A Medical Practice Management System (MPMS) is a system that facilitates the day-to-day operations of a medical practice. The primary focus of the MPMS in this repository is to provide service users and providers an interface that makes the process of engagement as smooth as possible.
+A Medical Practice Management System (MPMS) is a system that facilitates the day-to-day operations of a medical practice (Heath, et al. 2017). The primary focus of the MPMS in this repository is to provide service users and providers an interface that makes the process of engagement as smooth as possible.
 
 This repository contains a minimum viable product of a [Flask](https://github.com/pallets/flask) based MPMS.
 - The front end interface was built using [Bootstrap](https://github.com/twbs/bootstrap) and [Jinja](https://github.com/pallets/jinja)
@@ -139,3 +138,7 @@ tests/test_mpms_packages_users.py::PatientClassTestCase::test_request_repeat_pre
 
 ========================================================================================== 27 passed in 0.35s ========================================================================================== 
 ```
+
+## References
+
+Heath, C., Luff, P. and Svensson, .M.S. (2003), Technology and medical practice. Sociology of Health & Illness, 25: 75-96. https://doi.org/10.1111/1467-9566.00341
