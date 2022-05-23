@@ -96,6 +96,8 @@ class AppointmentSchedule:
         schedule.
         :rtype: Appointment
         """
+        available_appointments = []
         for appointment in self.appointments:
-            if appointment.patient is None:
-                return appointment
+            if appointment.appointment_type is None:
+                available_appointments.append(appointment)
+        return available_appointments

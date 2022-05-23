@@ -136,7 +136,7 @@ class AppointmentScheduleClassTestCase(unittest.TestCase):
         
         # Appointment 5
         cls.appointment_schedule_list.append(Appointment(
-            'Consultation', '1991', '2023-05-17 at 16:30',
+            None, '1991', '2023-05-17 at 16:30',
             None, cls.employee_4))
 
     def test_employee_name_attribute_with_data(cls) -> None:
@@ -178,11 +178,11 @@ class AppointmentScheduleClassTestCase(unittest.TestCase):
             cls.appointment_schedule_list)
         expected_response = "1991"
 
-        next_available_appointment = (
+        next_available_appointments = (
             appointment_schedule.find_next_available_appointment())
 
         assert (
-            next_available_appointment.appointment_id == expected_response)
+            next_available_appointments[0].appointment_id == expected_response)
 
 if __name__ == '__main__':
     unittest.main()

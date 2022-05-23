@@ -2,6 +2,9 @@ import os
 
 from flask import Flask
 
+from flask import redirect
+from flask import url_for
+
 
 def create_app(test_config=None):
     # create and configure the app
@@ -24,18 +27,18 @@ def create_app(test_config=None):
     except OSError:
         pass
 
-    # a simple page that says hello
-    @app.route('/')
-    def hello():
-        return 'Hello, World!'
-
     # Register database functions with the Flask app.
     from . import db
     db.init_app(app)
 
     # apply the blueprints to the app
-    from . import employee
+    from . import services
 
-    app.register_blueprint(employee.bp)
+    app.register_blueprint(services.bp)
+
+    # a simple page that says hello
+    @app.route('/')
+    def index():
+        return redirect(url_for('services.index'))
 
     return app

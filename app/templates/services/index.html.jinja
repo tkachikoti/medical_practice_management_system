@@ -1,0 +1,59 @@
+{% extends "base.html.jinja" %}
+{% block styles %}
+.wrap-table-text {
+    word-wrap: break-word;
+    max-width: 160px;
+}
+{% endblock %}
+{% block maincontent %}
+<div class="row justify-content-center">
+    <div class="col-auto">
+        {% if patient_table_data %}
+        <h2 class="text-center my-5">Patient Table</h2>
+        <table class="table table-responsive table-hover shadow p-3 mb-5 bg-body rounded">
+            <thead>
+                <tr>
+                    <th scope="col">Patient ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Phone Number</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for element in patient_table_data %}
+                <tr>
+                    <th scope="row">{{ element.id }}</th>
+                    <td class="wrap-table-text">{{ element.name }}</td>
+                    <td class="wrap-table-text">{{ element.phone_number }}</td>
+                    <td>
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">Open</button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                <li><a class="dropdown-item" href="/services/appointment?id={{ element.id }}">Manage Appointment</a></li>
+                                <li><a class="dropdown-item" href="/services/prescription?id={{ element.id }}">Issue Prescription</a></li>
+                                <li><a class="dropdown-item" href="/services/consultation?id={{ element.id }}">Add Consulation</a></li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <div class="shadow p-3 mb-5 bg-body rounded justify-content-center text-center my-5">
+            <h2 class="mb 3">No patients found</h2>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+{% block scripts %}
+    function create_patient_button() {
+        window.location.href = "/patient/create";
+    }
+    function confirm_deletion() {
+        if (window.confirm("Do you really want to delete this data?")) {
+            document.getElementById('delete_data_form').submit();
+        }
+    }
+{% endblock %}

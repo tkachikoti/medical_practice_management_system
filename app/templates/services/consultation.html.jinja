@@ -1,0 +1,26 @@
+{% extends "base.html.jinja" %}
+{% block maincontent %}
+<div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8">
+        <form class="shadow p-3 mb-5 bg-body rounded" action="/services/appointment" method="post">
+            <div class="row">
+                <p class="text-danger text-end fs-5">* required</p>
+                <div class="mb-3">
+                    <label for="descriptionInput1" class="form-label">Description <span class="text-danger">*</span></label>
+                    <textarea name="description" class="form-control" id="descriptionInput1" rows="3" required>{% if page_title=='Update Ticket' %}{{ ticket_data.description }}{% else %}{% endif %}</textarea>
+                </div>
+            <div class="d-grid gap-2 d-md-block mt-5">
+                <button type="submit" class="btn btn-primary btn-lg">{% if page_title=='Update Appointment' %}UPDATE{% else %}CREATE{% endif %} CONSULTATION</button>
+                <button type="button" class="btn btn-outline-secondary btn-lg" onclick="cancel_button()">RETURN HOME</button>
+            </div>
+        </form>
+    </div>
+    <div class="col-sm-2"></div>
+</div>
+{% endblock %}
+{% block scripts %}
+    function cancel_button() {
+        window.location.href = "/";
+    }
+{% endblock %}
