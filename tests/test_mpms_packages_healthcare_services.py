@@ -26,10 +26,10 @@ class PrescriptionClassTestCase(unittest.TestCase):
         patient_address = Address(
             '82 Riverside Road', 'London', 'Greater London', 'N1 2QP')
         patient = Patient(
-            'Judy Mette', 'PT4872', '450394817894', patient_address)
-        doctor = Doctor('Zaya Taline', 'DR4999')
+            'Judy Mette', '4872', '450394817894', patient_address)
+        doctor = Doctor('Zaya Taline', '4999')
         prescription = Prescription(
-            'PS3864', 'Tablet', '10', '1 tablet a day',
+            '3864', 'Tablet', '10', '1 tablet a day',
             patient, doctor, 'Paracetamol')
         expected_response = 'Tablet'
 
@@ -42,10 +42,10 @@ class PrescriptionClassTestCase(unittest.TestCase):
             '11 Steel Mill House', 'London', 'Greater London',
             'SW1P 1AA', 'Opiumpark Lane')
         patient = Patient(
-            'Maximilian Zaida', 'PT3902', '453789268490', patient_address)
-        doctor = Doctor('Frej Gili', 'DR4928')
+            'Maximilian Zaida', '3902', '453789268490', patient_address)
+        doctor = Doctor('Frej Gili', '4928')
         prescription = Prescription(
-            'PS3902', 'Tablet', '60', '2 tablet a day',
+            '3902', 'Tablet', '60', '2 tablet a day',
             patient, doctor, 'Acrivastine')
         expected_response = 'Opiumpark Lane'
 
@@ -61,12 +61,12 @@ class AppointmentClassTestCase(unittest.TestCase):
         patient_address = Address(
             '5 Mazzaline Road', 'London', 'Greater London', 'E1 6QP')
         patient = Patient(
-            'Shauna Oshrat', 'PT5924', '4539457626908', patient_address)
-        employee = HealthcareProfessional('Caroline Ido', 'DR4899')
+            'Shauna Oshrat', '5924', '4539457626908', patient_address)
+        employee = HealthcareProfessional('Caroline Ido', '4899')
         appointment = Appointment(
-            'Consultation', 'AP3298', '2023-02-06 at 14:00',
+            'Consultation', '3298', '2023-02-06 at 14:00',
             patient, employee)
-        expected_response = 'AP3298'
+        expected_response = '3298'
 
         assert appointment.appointment_id == expected_response
     
@@ -76,10 +76,10 @@ class AppointmentClassTestCase(unittest.TestCase):
         patient_address = Address(
             '78 Waterfalls Avenue', 'London', 'Greater London', 'W3 1QP')
         patient = Patient(
-            'Bratislava Silvia', 'PT6631', '459876420555', patient_address)
-        employee = HealthcareProfessional('Dakila Mitra', 'DR7777')
+            'Bratislava Silvia', '6631', '459876420555', patient_address)
+        employee = HealthcareProfessional('Dakila Mitra', '7777')
         appointment = Appointment(
-            'Consultation', 'AP3298', '2023-02-06 at 14:00',
+            'Consultation', '3298', '2023-02-06 at 14:00',
             patient, employee)
         expected_response = 'W3 1QP'
 
@@ -98,20 +98,20 @@ class AppointmentScheduleClassTestCase(unittest.TestCase):
         cls.patient_address_1 = Address(
             '33 Huel Lane', 'London', 'Greater London', 'SE15 2DG')
         cls.patient_1 = Patient(
-            'Akhil Maria', 'PT3338', '454766628902', cls.patient_address_1)
-        cls.employee_1 = HealthcareProfessional('Blaguna Gauti', 'DR5821')
+            'Akhil Maria', '3338', '454766628902', cls.patient_address_1)
+        cls.employee_1 = HealthcareProfessional('Blaguna Gauti', '5821')
         cls.appointment_schedule_list.append(Appointment(
-            'Consultation', 'AP1111', '2022-06-12 at 09:00',
+            'Consultation', '1111', '2022-06-12 at 09:00',
             cls.patient_1, cls.employee_1))
 
         # Appointment 2
         cls.patient_address_2 = Address(
             '123 Example Road', 'London', 'Greater London', 'N3 6SA')
         cls.patient_2 = Patient(
-            'Vilmos Ianus', 'PT9999', '451118888274', cls.patient_address_2)
-        cls.employee_2 = HealthcareProfessional('Anil Tony', 'DR7456')
+            'Vilmos Ianus', '9999', '451118888274', cls.patient_address_2)
+        cls.employee_2 = HealthcareProfessional('Anil Tony', '7456')
         cls.appointment_schedule_list.append(Appointment(
-            'Consultation', 'AP8356', '2022-12-01 at 12:00',
+            'Consultation', '8356', '2022-12-01 at 12:00',
             cls.patient_2, cls.employee_2))
         
         # Appointment 3
@@ -119,10 +119,10 @@ class AppointmentScheduleClassTestCase(unittest.TestCase):
             'Apt 72', 'Newcastle upon Tyne', 'Tyne and Wear', 'NE12 8FB',
             'Walmer House, Liverpool Street')
         cls.patient_3 = Patient(
-            'Eleonora Duilius', 'PT0987', '4528563999', cls.patient_address_3)
-        cls.employee_3 = HealthcareProfessional('Leolin Zion', 'DR0001')
+            'Eleonora Duilius', '4987', '4528563999', cls.patient_address_3)
+        cls.employee_3 = HealthcareProfessional('Leolin Zion', '1241')
         cls.appointment_schedule_list.append(Appointment(
-            'Consultation', 'AP3298', '2023-05-17 at 16:30',
+            'Consultation', '3298', '2023-05-17 at 16:30',
             cls.patient_3, cls.employee_3))
         
         # Appointment 4
@@ -130,13 +130,13 @@ class AppointmentScheduleClassTestCase(unittest.TestCase):
             'Apt 22', 'York', 'North Yorkshire', 'YO12 2DR',
             'Engineer House, Plug Street')
         cls.patient_4 = Patient(
-            'Carina Zemfira', 'PT8873', '454836994730', cls.patient_address_4)
+            'Carina Zemfira', '8873', '454836994730', cls.patient_address_4)
         cls.employee_4 = HealthcareProfessional(
-            'Gualguainus Katalinka', 'DR0003')
+            'Gualguainus Katalinka', '3245')
         
         # Appointment 5
         cls.appointment_schedule_list.append(Appointment(
-            'Consultation', 'AP1991', '2023-05-17 at 16:30',
+            'Consultation', '1991', '2023-05-17 at 16:30',
             None, cls.employee_4))
 
     def test_employee_name_attribute_with_data(cls) -> None:
@@ -152,10 +152,10 @@ class AppointmentScheduleClassTestCase(unittest.TestCase):
         """Test the add_appointment method with data."""
         appointment_schedule = AppointmentSchedule(
             cls.appointment_schedule_list)
-        expected_response = "AP2222"
+        expected_response = "2222"
 
         appointment_schedule.add_appointment(
-            'Consultation', 'AP2222', '2023-02-23 at 15:15',
+            'Consultation', '2222', '2023-02-23 at 15:15',
             cls.patient_4, cls.employee_4)
         
         assert (appointment_schedule.appointments[-1].appointment_id 
@@ -165,10 +165,10 @@ class AppointmentScheduleClassTestCase(unittest.TestCase):
         """Test the cancel_appointment method with data."""
         appointment_schedule = AppointmentSchedule(
             cls.appointment_schedule_list)
-        expected_response = "AP3298"
+        expected_response = "3298"
 
         cancelled_appointment = appointment_schedule.cancel_appointment(
-            'AP3298')
+            '3298')
         
         assert (cancelled_appointment.appointment_id == expected_response)
     
@@ -176,7 +176,7 @@ class AppointmentScheduleClassTestCase(unittest.TestCase):
         """Test the find_next_available_appointment method with data."""
         appointment_schedule = AppointmentSchedule(
             cls.appointment_schedule_list)
-        expected_response = "AP1991"
+        expected_response = "1991"
 
         next_available_appointment = (
             appointment_schedule.find_next_available_appointment())

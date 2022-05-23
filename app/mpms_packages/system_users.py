@@ -13,7 +13,7 @@ class HealthcareProfessional:
     professional.
     """
     name: str
-    employee_number: str
+    employee_id: int
     
     def consultation(self, patient_name: str, recommendation: str) -> str:
         """This method returns a string containing the patient name,
@@ -37,17 +37,17 @@ class Doctor(HealthcareProfessional):
     dataclass.
     """
     name: str
-    employee_number: str
+    employee_id: int
 
     def __post_init__(self):
         """This method post-initializes the Doctor class. It sets the
         name and employee number attributes.
         :param name: The name of the doctor.
         :type name: str
-        :param employee_number: The employee number of the doctor.
-        :type employee_number: str
+        :param employee_id: The employee number of the doctor.
+        :type employee_id: int
         """
-        super().__init__(self.name, self.employee_number)
+        super().__init__(self.name, self.employee_id)
 
     def issue_prescription(self) -> bool:
         return True
@@ -59,23 +59,23 @@ class Nurse(HealthcareProfessional):
     dataclass.
     """
     name: str
-    employee_number: str
+    employee_id: int
 
     def __post_init__(self):
         """This method post-initializes the Nurse class. It sets the name
         and employee number attributes.
         :param name: The name of the nurse.
         :type name: str
-        :param employee_number: The employee number of the nurse.
-        :type employee_number: str
+        :param employee_id: The employee number of the nurse.
+        :type employee_id: int
         """
-        super().__init__(self.name, self.employee_number)
+        super().__init__(self.name, self.employee_id)
 
 @dataclass
 class Receptionist:
     """This class functions as a model representing a receptionist."""
     name: str
-    employee_number: str
+    employee_id: int
 
     def make_appointment(self) -> bool:
         return True
@@ -87,7 +87,7 @@ class Receptionist:
 class Patient:
     """This class functions as a model representing a patient."""
     name: str
-    patient_id: str
+    patient_id: int
     phone_number: int
     address: Address
     
