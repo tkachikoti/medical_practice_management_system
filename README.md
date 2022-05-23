@@ -104,9 +104,9 @@ $ pytest
 
 ```
 ========================================================================================= test session starts ==========================================================================================
-platform win32 -- Python 3.9.13, pytest-7.1.2, pluggy-1.0.0 -- C:\Users\tkia2\AppData\Local\Microsoft\WindowsApps\PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0\python.exe
+platform win32 -- Python 3.9.13, pytest-7.1.2, pluggy-1.0.0 --
 cachedir: .pytest_cache
-rootdir: C:\Users\tkia2\web_dev\university_of_essex\medical_practice_management_system
+rootdir: code\medical_practice_management_system
 collected 27 items
 
 tests/test_mpms_packages_address.py::AddressClassTestCase::test_address_line_2_attribute_with_data PASSED                                                                                         [  3%] 
