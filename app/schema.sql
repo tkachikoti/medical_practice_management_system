@@ -15,11 +15,11 @@ CREATE TABLE patient (
 
 CREATE TABLE address (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
-  patient_id TEXT UNIQUE NOT NULL,
+  patient_id INTEGER NOT NULL,
   address_line_1 TEXT NOT NULL,
   address_line_2 TEXT NULL,
   city TEXT NOT NULL,
   county TEXT NOT NULL,
   postcode TEXT NOT NULL,
-  FOREIGN KEY (patient_id) REFERENCES user (patient_id)
+  FOREIGN KEY (patient_id) REFERENCES patient (id)
 );
